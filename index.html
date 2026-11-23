@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Satriyo Wibowo</title>
+  <style>
+    :root {
+      --bg: #0b1020; --surface: #121a2f; --surface-2: #18223b;
+      --text: #f4f7ff; --muted: #aab4cb; --accent: #6c8cff;
+      --accent-2: #8b5cf6; --border: rgba(255,255,255,.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 10; background: rgba(11,16,32,.8); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-inner { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 1.25rem; font-weight: 800; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; color: var(--muted); font-size: .95rem; }
+    .nav-links a:hover { color: white; }
+    .hero { min-height: 100vh; display: grid; place-items: center; padding-top: 70px; background: radial-gradient(circle at 20% 20%, rgba(108,140,255,.18), transparent 30%), radial-gradient(circle at 80% 70%, rgba(139,92,246,.15), transparent 30%); }
+    .hero-content { max-width: 760px; }
+    .badge { display: inline-block; padding: 7px 13px; border: 1px solid var(--border); border-radius: 999px; background: rgba(255,255,255,.04); color: #cbd5ff; margin-bottom: 20px; font-size: .9rem; }
+    h1 { font-size: clamp(2.7rem, 8vw, 5.8rem); line-height: 1; letter-spacing: -3px; margin-bottom: 22px; }
+    h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; color: transparent; }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 650px; margin-bottom: 30px; }
+    .buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { padding: 12px 19px; border-radius: 10px; border: 1px solid var(--border); transition: .2s; display: inline-block; }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: white; }
+    .btn:hover { transform: translateY(-2px); }
+    section { padding: 95px 0; }
+    .section-title { margin-bottom: 38px; }
+    .section-title small { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+    .section-title h2 { font-size: 2.2rem; margin-top: 5px; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 35px; align-items: center; }
+    .avatar { height: 450px; border-radius: 24px; overflow: hidden; background: var(--surface-2); border: 1px solid var(--border); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 25px; }
+    .card p { color: var(--muted); }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .skill { padding: 8px 13px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 9px; font-size: .9rem; display: inline-block; transition: .2s; }
+    .skill:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project { min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; }
+    .project-icon { width: 45px; height: 45px; border-radius: 12px; display: grid; place-items: center; background: rgba(108,140,255,.13); font-size: 1.3rem; margin-bottom: 18px; }
+    .project h3 { margin-bottom: 8px; }
+    .project a { color: #b9c6ff; margin-top: 20px; display: inline-block; }
+    .timeline { display: grid; gap: 15px; }
+    .timeline-item { border-left: 2px solid var(--accent); padding: 5px 0 5px 20px; }
+    .timeline-item small { color: var(--accent); }
+    .timeline-item p { color: var(--muted); }
+    .contact { text-align: center; background: linear-gradient(180deg, transparent, rgba(108,140,255,.07)); }
+    .contact p { color: var(--muted); max-width: 600px; margin: 10px auto 25px; }
+    footer { border-top: 1px solid var(--border); padding: 25px 0; color: var(--muted); text-align: center; font-size: .9rem; }
+    @media (max-width: 760px) {
+      .nav-links { display: none; } .about-grid, .project-grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; } section { padding: 70px 0; } .avatar { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+  <nav><div class="container nav-inner">
+    <div class="logo">S<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li><li><a href="#activity">Activity</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </div></nav>
+  <header class="hero"><div class="container hero-content">
+    <div class="badge">👋 Welcome to my portfolio</div>
+    <h1>Hi, I'm <span>Satriyo.</span></h1>
+    <p>Pelajar SMK yang tertarik dengan teknologi, desain, dan pengembangan project digital. Website ini menjadi tempat untuk menampilkan karya, kemampuan, dan perjalanan belajar saya.</p>
+    <div class="buttons"><a class="btn btn-primary" href="#projects">Lihat Project</a><a class="btn" href="#contact">Hubungi Saya</a></div>
+  </div></header>
+  <section id="about"><div class="container">
+    <div class="section-title"><small>01 — About</small><h2>Tentang Saya</h2></div>
+    <div class="about-grid">
+      <div class="avatar"><img src="satriyo.jpeg" alt="Foto Satriyo"></div>
+      <div class="card">
+        <p>Halo! Saya Satriyo Wibowo. Saya sedang menempuh pendidikan di SMK dan senang mempelajari hal-hal baru seputar teknologi dan dunia digital. Saya suka mengerjakan project yang bisa membuat skill saya berkembang.</p>
+        <div class="skills">
+          <a class="skill" href="figma.html">Figma ↗</a>
+       
+          <a class="skill" href="blender.html">Blender ↗</a>
+          <a class="skill" href="ibispaint.html">Ibis Paint ↗</a>
+        </div>
+      </div>
+    </div>
+  </div></section>
+  <section id="skills"><div class="container">
+    <div class="section-title"><small>02 — Skills</small><h2>Yang Sedang Saya Pelajari</h2></div>
+    <div class="project-grid">
+      <div class="card"><h3>💻 Web Development</h3><p>HTML, CSS, dan dasar pengembangan website.</p></div>
+      <div class="card"><h3>🎨 Design</h3><p>Dasar UI/UX, layout, prototype, warna, dan membuat tampilan yang nyaman digunakan.</p></div>
+      <div class="card"><h3>⚙️ Problem Solving</h3><p>Belajar memecahkan masalah melalui project dan latihan secara bertahap.</p></div>
+    </div>
+  </div></section>
+  <section id="projects"><div class="container">
+    <div class="section-title"><small>03 — Projects</small><h2>Project Saya</h2></div>
+    <div class="project-grid">
+      <div class="card project"><div><div class="project-icon">🌐</div><h3>Portfolio Website</h3><p>Website portfolio pribadi dengan desain modern dan responsive.</p></div><a href="#">View Project →</a></div>
+      <div class="card project"><div><div class="project-icon">📱</div><h3>Landing Page</h3><p>Konsep landing page untuk sebuah produk atau layanan digital.</p></div><a href="#">View Project →</a></div>
+      <div class="card project"><div><div class="project-icon">🚀</div><h3>Future Project</h3><p>Project berikutnya yang akan dibuat untuk mengembangkan kemampuan.</p></div><a href="#">Coming Soon →</a></div>
+    </div>
+  </div></section>
+  <section id="activity"><div class="container">
+    <div class="section-title"><small>04 — Activity</small><h2>Perjalanan Belajar</h2></div>
+    <div class="timeline">
+      <div class="timeline-item"><small>Project & School</small><h3>Belajar Web Development</h3><p>Mengembangkan kemampuan HTML, CSS, dan membuat project website.</p></div>
+      <div class="timeline-item"><small>Project & School</small><h3>2D ASET DESIGNER</h3><p>Membuat sketsa berbagai aset 2D menggunakan ibispaint, mengembangkan sketsa sesuai kebutuhan projek, mengatur warna dan bayangan untuk mendukung kebutuhan.</p></div>
+      <div class="timeline-item"><small>Project & School</small><h3>3D ASET DESIGNER</h3><p>Membuat dan merancang berbagai objek atau aset 3D menggunakan Blender.</p></div>
+    </div>
+  </div></section>
+  <section id="contact" class="contact"><div class="container">
+    <div class="section-title"><small>05 — Contact</small><h2>Let's Connect</h2></div>
+    <p>Punya project, ide, atau ingin berkenalan? Silakan hubungi saya melalui media sosial atau email.</p>
+    <div class="buttons" style="justify-content:center">
+      <a class="btn btn-primary" href="mailto:satriyowibowo277@gmao.com">Email Me</a>
+      <a class="btn" href="https://wa.me/qr/GKJHMVO72VLHD1/" target="_blank" rel="noopener">whatsapp</a>
+      <a class="btn" href="https://www.instagram.com/strioo_wbwo?knvt=MXNuYmtnZzFhczh3dw==/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div></section>
+  <footer>© 2026 Satriyo Wibowo · Personal Portfolio</footer>
+</body>
+</html>
